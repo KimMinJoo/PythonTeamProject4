@@ -1,0 +1,53 @@
+﻿<script>
+    function load_contents(index) {//이미 저장되있던 콘텐츠 클릭시 콘테츠를 가져오는 함수
+        var title = document.getElementById("Listtitle_" + index).value
+        var contents = document.getElementById("Listcontents_" + index).value
+        document.getElementById('NoteTitle').value = title;
+        document.getElementById('NoteTextarea').value = contents;
+        var id = document.getElementById("Listid_" + index).value
+        document.getElementById('updateflag').value = id;
+    }
+</script>
+{% extends "layout.html" %}
+{% block body %}
+<div class=page>
+    <h1>Note</h1>
+    {% for message in get_flashed_messages() %}
+    <div class=flash>{{ message }}</div>
+    {% endfor %}
+</div>
+<div id="Note">
+    <form method="post" action="{{ url_for('add_entry') }}" >
+        <div id="NoteList" class="page">
+            {% for index in range(length) :%}
+            <div class="ContentsList" onclick="load_contents({{index}})">
+                <table>
+                    <tr><td><input type="hidden" id="Listid_{{index}}" value="{{ entries[index].id }}">
+                        <input type="hidden" id="Listtitle_{{index}}" value="{{ entries[index].title }}">
+                        <h2>{{ entries[index].title }}</h2></td></tr>
+                    <tr><td><input type="hidden" id="Listcontents_{{index}}" value="{{ entries[index].text|safe }}">{{ entries[index].text }}</td></tr>
+                </table>
+            </div>
+            {% endfor %}
+        </div><!--NoteList div종료-->
+        <div id="NoteContent" class="page">
+            <table>
+                <tr>
+                    <td align="center" valign="middle"><input type="text" id="NoteTitle" name="NoteTitle" placeholder="제목을 작성해주세요."></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle"><textarea id="NoteTextarea" name="NoteTextarea" margin:10px placeholder="새로운 글을 작성해주세요."></textarea></td>
+                </tr>
+                <tr>
+                    <td align="center" valign="middle">
+                        <input type="hidden" id="updateflag" name="updateflag" value="none">
+                        <button id="Notebutton">
+                            <img id="NoteSubmit">
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div><!--NoteContent div종료-->
+    </form>
+</div>
+{% endblock %}

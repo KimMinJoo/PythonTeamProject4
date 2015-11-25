@@ -1,0 +1,75 @@
+﻿body { font-family: sans-serif; background: #CEE5F5; }
+a, h1, h2 { color: #377BA8; }
+h1, h2 { font-family: 'Georgia', serif; }
+h2 { font-size: 1.2em; }
+.page { margin: 10 auto; width: 35em; border: 5px solid #377BA8;
+padding: 0.8em; background: white; }
+.add-entry { font-size: 0.9em; border-bottom: 1px solid #ccc; }
+.add-entry dl { font-weight: bold; }
+.metanav { text-align: right; font-size: 0.8em; padding: 0.3em;
+margin-bottom: 1em; background: #fafafa; }
+.flash { background: #CEE5F5; padding: 0.5em;
+border: 1px solid #AACBE2; }
+.error { background: #F0D6D6; padding: 0.5em; }
+    #NoteTextarea {
+        width: 560px;
+        height: 450px;
+    }
+
+    #NoteTitle {
+        width: 560px;
+        height: 50px;
+    }
+
+    #NoteSubmit {
+        position: relative;
+        top: -3px;
+        left: -8px;
+        width:40px;
+        height:40px;
+        background: url(img/i_plus_circle_md.png) no-repeat center;
+        border: none;
+        cursor: pointer;
+    }
+
+    #NoteList {
+        float: left;
+        width: 200px;
+    }
+    .ContentsList{
+        width:180px;
+        height:80px;
+        border: 5px solid #377BA8;
+        margin-bottom:10px;
+        overflow:hidden
+    }
+    .ContentsList:hover {
+        width:180px;
+        height:80px;
+        border: 5px solid #CEE5F5;
+        margin-bottom:10px;
+    }
+    .ContentsList:focus {
+        width:180px;
+        height:50px;
+        border: 5px solid #CEE5F5;
+        margin-bottom:10px;
+    }
+    #Notebutton{
+        width:40px;
+        height:40px;
+    }
+    #main_bakcground{
+        width:100%;
+        height:200px;
+        background-image: url(img/cloud.jpg);
+        background-size: 100% 200px;
+        text-align:center;
+        margin:auto;
+    }
+    #MainLogoText{
+        color: #377BA8;
+        font-family: 'Georgia', serif; 
+        font-size: 1.2em;
+        padding:80px 0 0 0;
+    }
