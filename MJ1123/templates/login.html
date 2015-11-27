@@ -1,0 +1,24 @@
+﻿{% extends "layout.html" %}
+{% block body %}
+<div id="loginmaindiv">
+    {% for message in get_flashed_messages() %}
+        <div class=flash>{{ message }}</div>
+    {% endfor %}
+    <form method="post" action="{{ url_for('insertMember') }}">
+        <div class="newMember">ID<input type="text" placeholder="ID를 입력해주세요" name="userid"></div>
+        <div class="newMember">PW<input type="text" placeholder="PW를 입력해주세요" name="userpasswd"></div>
+        <div>
+            <button type="submit" class="btn btn-primary btn-lg">
+                회원가입
+            </button>
+        </div>
+    </form>
+    
+    <br>
+    또는
+    <a id="logintag" data-toggle="modal" data-target="#myModal">
+        Login
+    </a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,86 @@
+﻿<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>
+<script type="text/javascript">
+
+    //<![CDATA[
+    bkLib.onDomLoaded(function () { nicEditors.allTextAreas() });
+    //]]>
+</script>
+
+<script>
+    function load_contents(index) {//이미 저장되있던 콘텐츠 클릭시 콘테츠를 가져오는 함수
+        var title = document.getElementById("Listtitle_" + index).value
+        var contents = document.getElementById("Listcontents_" + index).value
+        document.getElementById('NoteTitle').value = title;
+        document.getElementById('NoteTextarea').value = contents;
+        nicEditors.findEditor("NoteTextarea").setContent(contents);
+        var id = document.getElementById("Listid_" + index).value
+        document.getElementById('updateflag').value = id;
+        var userid = document.getElementById("Listuserid_" + index).value
+        alert(userid)
+    }
+
+    function newNote() {
+        document.getElementById('updateflag').value = "none";
+        document.getElementById('NoteTitle').value = "";
+        document.getElementById('NoteTextarea').value = "";
+        nicEditors.findEditor("NoteTextarea").setContent("");
+    }
+</script>
+{% extends "layout.html" %}
+{% block body %}
+<div class=page id="Notelogo">
+    <h1 id=" notemain">
+        {% if session.id %}
+        {{session['id']}}'s
+        {% endif %}Note
+    </h1>
+    {% for message in get_flashed_messages() %}
+    <div class=flash>{{ message }}</div>
+    {% endfor %}
+</div>
+<div id="Note">
+    <form method="post" action="{{ url_for('add_entry') }}">
+        <div id="NoteList" class="page">
+            <div id="NewWrite" onclick="newNote()">
+                NewNote
+            </div>
+            {% for index in range(length) :%}
+            <div class="ContentsList" onclick="load_contents({{index}})">
+                <div class="deletebutton"><a href="{{ url_for('del_entry',id=entries[index].id) }}"><img id="deleteimg" alt="　　" /></a></div>
+                <table>
+                    <tr>
+                        <td>
+                            <input type="hidden" id="Listid_{{index}}" value="{{ entries[index].id }}">
+                            <input type="hidden" id="Listtitle_{{index}}" value="{{ entries[index].title }}">
+                            <input type="hidden" id="Listuserid_{{index}}" value="{{ entries[index].userid }}">
+                            <div class="listtitle">{{ entries[index].title }}</div>
+                        </td>
+                    </tr>
+                    <tr><td><input type="hidden" id="Listcontents_{{index}}" value="{{ entries[index].text|safe }}">{{text[index]}}</td></tr>
+                </table>
+            </div>
+            {% endfor %}
+        </div><!--NoteList div종료-->
+        <div id="NoteContent" class="page">
+            <div id="contenttable">
+                <div id="titletr">
+                    <div align="center" valign="middle" id="NoteTitlediv"><input type="text" id="NoteTitle" name="NoteTitle" placeholder="제목을 작성해주세요."></div>
+                </div>
+                <div>
+                    <div align="center" valign="middle" id="NoteTextareadiv">
+                        <textarea id="NoteTextarea" name="NoteTextarea" placeholder="새로운 글을 작성해주세요." value="1"></textarea>
+                    </div>
+                </div>
+                <div id="btndiv" align="center" valign="middle">
+                    <button id="Notebutton">
+                        <img id="NoteSubmit">
+                    </button>
+                    <input type="hidden" id="updateflag" name="updateflag" value="none">
+                </div>
+            </div>
+            
+        </div><!--NoteContent div종료-->
+    </form>
+</div>
+{% endblock %}

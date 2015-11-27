@@ -1,0 +1,56 @@
+﻿<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="http://googledrive.com/host/0B-QKv6rUoIcGREtrRTljTlQ3OTg"></script><!-- ie10-viewport-bug-workaround.js -->
+<script src="http://googledrive.com/host/0B-QKv6rUoIcGeHd6VV9JczlHUjg"></script><!-- holder.js -->
+<script>
+</script>
+<!doctype html>
+<title>NoteFunction</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='stylesheet.css') }}">
+<div id="main_bakcground">
+    <div id="loginbtndiv">
+        {% if session.id %}
+        <form method="post" action="{{url_for('logout')}}">
+            <button type="submit" class="btn btn-primary btn-lg">
+                Logout
+            </button>
+        </form>
+        {% else %}
+        <form method="post" action="{{url_for('login')}}">
+            <button type="submit" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                Login
+            </button>
+        </form>
+        {% endif %}
+    </div>
+    <div id="MainLogoText">
+        <p>Main Logo Test</p>
+    </div>
+</div>
+<div class="container">
+    <!-- 모달 팝업 -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog">
+            <form method="post" action="{{url_for('login')}}">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Login</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div>ID<input type="text" placeholder="ID를 입력해주세요" name="userid"></div>
+                        <div>PW<input type="text" placeholder="PW를 입력해주세요" name="userpasswd"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="loginbtn" type="submit" class="btn btn-primary">Login</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% block body %}{% endblock %}
+

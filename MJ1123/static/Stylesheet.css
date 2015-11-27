@@ -1,0 +1,169 @@
+﻿body { font-family: sans-serif; background: #CEE5F5; }
+a, h1, h2 { color: #377BA8; }
+h1, h2 { font-family: 'Georgia', serif; }
+h2 { font-size: 1.2em; }
+.page { margin: 10px auto; width: 35em; border: 5px solid #377BA8;
+padding: 0.8em; background: white; }
+.add-entry { font-size: 0.9em; border-bottom: 1px solid #ccc; }
+.add-entry dl { font-weight: bold; }
+.metanav { text-align: right; font-size: 0.8em; padding: 0.3em;
+margin-bottom: 1em; background: #fafafa; }
+.flash { background: #CEE5F5; padding: 0.5em;
+border: 1px solid #AACBE2; }
+.error { background: #F0D6D6; padding: 0.5em; }
+    #Note{
+        height:63%;
+    }
+    #NoteTextarea {
+        width: 100%;
+        height: 85%;
+        margin:10px;
+        display:block;
+    }
+    #NoteTitle {
+        width: 100%;
+        height: 100%;
+    }
+    #NoteContent{
+        width:30%;
+        height:100%;
+    }
+    #Notelogo{
+        width:30%;
+    }
+    #NoteSubmit {
+        position: relative;
+        top: -3px;
+        left: -8px;
+        width:40px;
+        height:40px;
+        background: url(img/i_plus_circle_md.png) no-repeat center;
+        border: none;
+        cursor: pointer;
+    }
+
+    #NoteList {
+        float: left;
+        width: 10%;
+    }
+    .ContentsList{
+        border-radius: 15px;
+        width:90%;
+        height:70px;
+        border: 5px solid #377BA8;
+        margin-bottom:10px;
+        overflow:hidden
+    }
+    .ContentsList:hover {
+        border-radius: 15px;
+        width:90%;
+        height:70px;
+        border: 5px solid #CEE5F5;
+        margin-bottom:10px;
+    }
+    .ContentsList:focus {
+        border-radius: 15px;
+        width:90%;
+        height:70px;
+        border: 5px solid #CEE5F5;
+        margin-bottom:10px;
+    }
+    #Notebutton{
+        width:40px;
+        height:40px;
+    }
+    #main_bakcground{
+        width:100%;
+        height:200px;
+        background-image: url(img/cloud.jpg);
+        background-size: 100% 200px;
+        text-align:center;
+        margin:auto;
+    }
+    #MainLogoText{
+        color: #377BA8;
+        font-family: 'Georgia', serif; 
+        font-size: 1.2em;
+        padding:80px 0 0 0;
+    }
+    #NewWrite{
+        border-radius: 10px;
+        width:90%;
+        height:30px;
+        border: 5px solid #377BA8;
+        margin-bottom:10px;
+        font-family: 'Georgia', serif;
+        color: #377BA8;
+        font-weight: bold;
+    }
+    .listtitle{
+        margin: 2px;
+        font-family: 'Georgia', serif;
+        font-size:20px;
+        color: #377BA8;
+        font-weight: bold;
+    }
+    #NewWrite:hover{
+        border-radius: 10px;
+        width:90%;
+        height:30px;
+        border: 5px solid #CEE5F5;
+        margin-bottom:10px;
+        font-family: 'Georgia', serif;
+        color: #377BA8;
+        font-weight: bold;
+    }
+    .deletebutton{
+        height:0px;
+        visibility:hidden;
+    }
+    
+    .ContentsList:hover >.deletebutton{
+        text-align:right;
+        visibility:visible;
+    }
+    #deleteimg{
+        width:20px;
+        height:20px;
+        background-image:url(img/i_close_circle_md.png);
+        background-size: 100% 100%;
+    }
+    #NoteMain{
+        margin:0px;
+    }
+    #NoteTextareadiv{
+        width:100%;
+        height:83%;
+    }
+    #NoteTitlediv{
+        width:100%;
+        height:100%;
+    }
+    #contenttable{
+        width:100%;
+        height:100%;
+    }
+    #titletr{
+        width:100%;
+        height:10%;
+    }
+    #loginbtndiv{
+        text-align:right;
+    }
+    #loginmaindiv{
+        text-align:center;
+    }
+    .newMember{
+        border-radius: 5px;
+        font-family: 'Georgia', serif;
+        color: #377BA8;
+        font-weight: bold;
+    }
+    #logintag:hover{
+        cursor:pointer;
+    }
+    #btndiv{
+        margin:0;
+        width:100%;
+		height:40px;
+    }
